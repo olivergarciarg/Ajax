@@ -18,19 +18,15 @@ function loadData() {
 
     $greeting.text('So, you want to live at ' + address + '?');
 
-    //var streetviewUrl = https://maps.googleapis.com/maps/api/streetview?size=600x300&location=eiffel%20tower,%20paris,%20france&heading=-45&pitch=42&fov=110&key=YOUR_API_KEY&signature=YOUR_SIGNATURE
-    //var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + ' ';
-    //$body.append('<img class="bgimg" src="' + streetviewUrl + '">');
-
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + '&key=AIzaSyBFVU3xlD8-Jy4O-DDaTzLzGj5mLyq5fwk ';
+    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + ' ';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
     // YOUR CODE GOES HERE!
     //NYT code
-    var api_key = '17MJWpn9XpKDoxdTBLvwcRniHi0mDdAX'
+    var api_key = 'YOUR API KEY HERE'
     var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=' + api_key;
     $.getJSON(nytimesUrl, function(data){
-        $nytHeaderElem.text('New York Times Articles About ' + cityStr);
+        $nytHeaderElem.text('New York Times Articles About' + cityStr);
         articles = data.response.docs;
         for (var i=0; i<articles.length; i++){
             var article = articles[i];
@@ -44,7 +40,11 @@ function loadData() {
                             '</li>');
         };
     }).error(function(e){
-        $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+        if (api_key === 'YOUR API KEY HERE') {
+            $nytHeaderElem.text('Please, update js/scrip.js with your own API KEY');
+        }else{
+            $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+        }
     });
 
     //Wikipedia AJAX
