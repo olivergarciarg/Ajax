@@ -22,7 +22,7 @@ function loadData() {
     //var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + ' ';
     //$body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + '&key=AIzaSyBFVU3xlD8-Jy4O-DDaTzLzGj5mLyq5fwk ';
+    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + encodeURIComponent(address) + '&key=YOURKEY ';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
     // YOUR CODE GOES HERE!
